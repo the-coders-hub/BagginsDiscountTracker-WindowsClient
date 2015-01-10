@@ -25,19 +25,22 @@ namespace Baggins
         {
             //String title, String description, String source_name, String source_details,String link, String image, int likes, int dislikes
             List<Advertisement> itemsList = new List<Advertisement>();
-            itemsList.Add(new Advertisement("Heading Of The App, will be showed here!", "This is the description", "Bijoy Singh", "20 years old", "http://google.com", "", 12, 2));
+            itemsList.Add(new Advertisement("Heading Of The App, will be showed here!", "This is the descriptio, yout"+
+            "mothe fucker. This better work,mothe fucker. This better work,mothe fucker. This better work,mothe fucker. This better work,mothe fucker. This better work, n", "Bijoy Singh", "20 years old", "http://google.com", "", 12, 2));
             itemsList.Add(new Advertisement("Heading", "This is the description", "Bijoy Singh", "20 years old", "http://google.com", "", 12, 2));
             itemsList.Add(new Advertisement("Heading", "This is the description", "Bijoy Singh", "20 years old", "http://google.com", "", 12, 2));
 
             return itemsList;
         }
-
-        private void ClickFunction(Object sender, RoutedEventArgs e)
+            
+        private void ClickFunction(Object sender, ItemClickEventArgs e)
         {
-            var lv = (ListViewItem) sender;
-            if (lv != null)
+            /*ListView lv = ((ListView) sender);
+            Advertisement ad = lv.*/
+            Advertisement ad = e.ClickedItem as Advertisement;
+            if (ad != null)
             {
-                this.Frame.Navigate(typeof(Baggins.ArticlePage));
+                this.Frame.Navigate(typeof(Baggins.ArticlePage),ad);
             }            
         }
 
@@ -48,7 +51,7 @@ namespace Baggins
             lv.ItemTemplate = (DataTemplate)Application.Current.Resources["cardTemplate"];
             //lv.HorizontalContentAlignment = Windows.UI.Xaml.HorizontalAlignment.Stretch;
             lv.ItemsSource = items;
-            lv.ItemClick += ClickFunction;
+            //lv.ItemClick += ClickFunction;
             lv.SelectionChanged += ListView_SelectionChanged;
 
         }
@@ -69,6 +72,8 @@ namespace Baggins
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             // TODO: Prepare page for display here.
+
+
             StartCreation();
 
             // TODO: If your application contains multiple pages, ensure that you are
@@ -76,6 +81,11 @@ namespace Baggins
             // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
             // If you are using the NavigationHelper provided by some templates,
             // this event is handled for you.
+        }
+
+        private void GoToNewAdvertisement(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Baggins.AddAdvertisement));
         }
 
         private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
