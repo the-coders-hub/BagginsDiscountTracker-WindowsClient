@@ -13,6 +13,10 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.Live;
+using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Resources;
+using Windows.Storage;
+
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
 namespace Baggins
@@ -22,20 +26,55 @@ namespace Baggins
     /// </summary>
     public sealed partial class LoginPage : Page
     {
-        public LoginPage()
-        {
-            this.InitializeComponent();
-        }
+
+        private ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+
+       
 
         /// <summary>
         /// Invoked when this page is about to be displayed in a Frame.
         /// </summary>
         /// <param name="e">Event data that describes how this page was reached.
         /// This parameter is typically used to configure the page.</param>
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+
+        
+        private void goToHome()
         {
+            this.Frame.Navigate(typeof(HomePage));
         }
 
+        private void goHomeClick(Object sender, RoutedEventArgs e)
+        {
+            goToHome();
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            String ID = localSettings.Values["OUTLOOK_ID"] as String;
+            if (ID != null && ID != "")
+            {
+                connectButton.Content = "GO TO HOME PAGE";
+                connectButton.Click += goHomeClick;
+                //this.Frame.NavigationStopped += Frame_NavigationStopped;
+                //this.Frame.StopLoading();
+            }
+        }
+
+
+        private void Frame_NavigationStopped(object sender, NavigationEventArgs e)
+        {
+            this.Frame.NavigationStopped -= Frame_NavigationStopped; // Prevent infinite loop
+            goToHome();
+        }
+        
+        private void getUserData(dynamic meData)
+        {
+            //var d = meData["id"];
+
+            localSettings.Values["OUTLOOK_ID"] = meData.id;
+            localSettings.Values["OUTLOOK_NAME"] = meData.name;
+            localSettings.Values["OUTLOOK_FN"] = meData.first_name;
+            localSettings.Values["OUTLOOK_LN"] = meData.last_name;
+        }
         private async void ConnectToLive(Object sender, RoutedEventArgs e)
         {
             
@@ -51,7 +90,7 @@ namespace Baggins
                     var connectClient = new LiveConnectClient(result.Session);
                     var meResult = await connectClient.GetAsync("me");
                     dynamic meData = meResult.Result;
-                    
+                    getUserData(meData);
                 }
             }
             catch (LiveAuthException ex)
@@ -65,6 +104,7 @@ namespace Baggins
 
             // Turn off the display of the connection button in the UI.
             connectButton.Visibility = connected ? Visibility.Collapsed : Visibility.Visible;
+            goToHome();
         }
     }
 }

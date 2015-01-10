@@ -14,6 +14,9 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.Storage.Pickers;
 using Windows.Storage;
+using Windows.ApplicationModel.Core;
+using Windows.ApplicationModel.Activation;
+using Windows.UI.Xaml.Media.Imaging;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -24,6 +27,7 @@ namespace Baggins
     /// </summary>
     public sealed partial class AddAdvertisement : Page
     {
+        CoreApplicationView view = CoreApplication.GetCurrentView();
         public AddAdvertisement()
         {
             this.InitializeComponent();
@@ -38,8 +42,9 @@ namespace Baggins
         {
         }
 
-        private async void ImageClickListener(Object sender, TappedRoutedEventArgs e)
+        private void ImageClickListener(Object sender, TappedRoutedEventArgs e)
         {
+            
             FileOpenPicker openPicker = new FileOpenPicker();
             openPicker.ViewMode = PickerViewMode.Thumbnail;
             openPicker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
@@ -47,15 +52,30 @@ namespace Baggins
             openPicker.FileTypeFilter.Add(".jpeg");
             openPicker.FileTypeFilter.Add(".png");
 
-            StorageFile file = await openPicker.PickSingleFileAsync();
-            if (file != null)
-            {
-                //CoverImage.Source = file.Path;           
-            }
-            else
-            { 
-            }
+            //StorageFile file = await openPicker.PickSingleFileAsync();
+            openPicker.PickSingleFileAndContinue();
+            view.Activated += viewActivated;
+            
 
+        }
+
+        private async void viewActivated(CoreApplicationView sender, IActivatedEventArgs args1)
+        {
+            FileOpenPickerContinuationEventArgs args = args1 as FileOpenPickerContinuationEventArgs;
+
+            if (args != null)
+            {
+                if (args.Files.Count == 0) return;
+
+                view.Activated -= viewActivated;
+                StorageFile file = args.Files[0];
+                var stream = await file.OpenReadAsync();
+                var bitmapImage = new BitmapImage();
+                bitmapImage.SetSource(stream);
+                CoverImage.Source = bitmapImage;
+                
+
+            }
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

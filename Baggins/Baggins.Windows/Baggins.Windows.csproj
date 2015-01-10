@@ -106,6 +106,9 @@
     <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -126,6 +129,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -150,6 +157,11 @@
     <Reference Include="System.Net.Http.Primitives">
       <HintPath>..\..\packages\Microsoft.Net.Http.2.2.28\lib\win8\System.Net.Http.Primitives.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="LiveSDKXAML, Version=5.6">
+      <Name>Live SDK</Name>
+    </SDKReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
