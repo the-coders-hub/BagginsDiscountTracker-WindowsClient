@@ -38,11 +38,12 @@ namespace Baggins
 
         private async void ConnectToLive(Object sender, RoutedEventArgs e)
         {
+            
             bool connected = false;
             try
             {
                 var authClient = new LiveAuthClient();
-                LiveLoginResult result = await authClient.LoginAsync(new string[] { "wl.signin", "wl.skydrive" });
+                LiveLoginResult result = await authClient.LoginAsync(new string[] { "wl.signin"});
 
                 if (result.Status == LiveConnectSessionStatus.Connected)
                 {

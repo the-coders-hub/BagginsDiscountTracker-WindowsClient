@@ -83,6 +83,11 @@ namespace Baggins
             // this event is handled for you.
         }
 
+        private void GoToLoginPage(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Baggins.LoginPage));
+        }
+
         private void GoToNewAdvertisement(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Baggins.AddAdvertisement));

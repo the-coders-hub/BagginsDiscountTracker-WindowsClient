@@ -9,6 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.BottomAppBar>
         <CommandBar>
+            <AppBarButton Icon="Account" Label="Account" Click="GoToLoginPage"/>
             <AppBarButton Icon="Setting" Label="Settings"/>
             <AppBarButton Icon="Bookmarks" Label="Bookmarks"/>
             <AppBarButton Icon="Add" Label="Add" Click="GoToNewAdvertisement"/>
