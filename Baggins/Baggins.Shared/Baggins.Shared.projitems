@@ -24,4 +24,12 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Assets\cag.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\design_106.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\dislike.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\face.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\like.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Fonts\RalewayLt.otf" />
+  </ItemGroup>
 </Project>

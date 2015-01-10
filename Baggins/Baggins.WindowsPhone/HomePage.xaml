@@ -9,10 +9,8 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.BottomAppBar>
         <CommandBar>
-            <AppBarButton Icon="Pin" Label="Pin"/>
-            <AppBarButton Icon="Like" Label="Like"/>
-            <AppBarButton Icon="Dislike" Label="Dislike"/>
-            <AppBarButton Icon="Go" Label="Go"/>
+            <AppBarButton Icon="Setting" Label="Settings"/>
+            <AppBarButton Icon="Bookmarks" Label="Bookmarks"/>
         </CommandBar>
     </Page.BottomAppBar>
     <Grid>
