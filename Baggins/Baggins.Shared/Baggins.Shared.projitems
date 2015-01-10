@@ -18,6 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Class.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ArticlePage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HomePage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\DiscountItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)Dictionary.xaml">
