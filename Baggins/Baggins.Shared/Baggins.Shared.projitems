@@ -16,6 +16,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Class.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ArticlePage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HomePage.cs" />
   </ItemGroup>
   <ItemGroup>
