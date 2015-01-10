@@ -32,6 +32,15 @@ namespace Baggins
             return itemsList;
         }
 
+        private void ClickFunction(Object sender, RoutedEventArgs e)
+        {
+            var lv = (ListViewItem) sender;
+            if (lv != null)
+            {
+                this.Frame.Navigate(typeof(Baggins.ArticlePage));
+            }            
+        }
+
         private void CreateListView(ListView lv, int type)
         {
             List<Advertisement> items = getData(type);
@@ -39,6 +48,7 @@ namespace Baggins
             lv.ItemTemplate = (DataTemplate)Application.Current.Resources["cardTemplate"];
             //lv.HorizontalContentAlignment = Windows.UI.Xaml.HorizontalAlignment.Stretch;
             lv.ItemsSource = items;
+            lv.ItemClick += ClickFunction;
             lv.SelectionChanged += ListView_SelectionChanged;
 
         }
