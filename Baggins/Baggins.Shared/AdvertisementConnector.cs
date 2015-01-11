@@ -24,6 +24,10 @@ namespace Baggins
     {
         private MobileServiceCollection<Advertisement, Advertisement> items;
         private IMobileServiceTable<Advertisement> discountTable = App.MobileService.GetTable<Advertisement>();
+        private MobileServiceCollection<UARelation, UARelation> relations;
+        private IMobileServiceTable<UARelation> relationTable = App.MobileService.GetTable<UARelation>();
+        private MobileServiceCollection<UserProfile, UserProfile> users;
+        private IMobileServiceTable<UserProfile> userTable = App.MobileService.GetTable<UserProfile>();
 
         private async Task InsertDiscountItem(Advertisement discountItem)
         {
@@ -60,6 +64,55 @@ namespace Baggins
                 ListName.ItemsSource = items;
             }
         }
+
+        private async Task LikeAdvertisement(Advertisement item, UARelation relation)
+        {
+            //This updates likes
+            await discountTable.UpdateAsync(item);
+            item.Likes = item.Likes + 1;
+
+            //This tells that the user has liked the item
+            await relationTable.UpdateAsync(relation);
+            relation.Flag = 1;
+
+            //Now, to give score to the one who deserves
+            string deserver = item.SourceName;
+            users = await userTable
+                .Where(auser => auser.Username == deserver)
+                .ToCollectionAsync();
+            UserProfile acredited = users[0];
+            await userTable.UpdateAsync(acredited);
+            acredited.Score = acredited.Score + 1;
+            //await SyncAsync(); // offline sync
+        }
+
+        private async Task DisikeAdvertisement(Advertisement item, UARelation relation)
+        {
+            //This updates dislikes
+            await discountTable.UpdateAsync(item);
+            item.Dislikes = item.Dislikes + 1;
+
+            //This ad is fake, ditch it
+            if (item.Dislikes > item.Likes + 10)
+            {
+                item.IsActive = false;
+            }
+
+            //This tells that the user has disliked the item
+            await relationTable.UpdateAsync(relation);
+            relation.Flag = -1;
+
+            //Now, to punish the one who fakes
+            string nondeserver = item.SourceName;
+            users = await userTable
+                .Where(auser => auser.Username == nondeserver)
+                .ToCollectionAsync();
+            UserProfile faker = users[0];
+            await userTable.UpdateAsync(faker);
+            faker.Score = faker.Score - 1;
+            //await SyncAsync(); // offline sync
+        }
+
 
     }
 }

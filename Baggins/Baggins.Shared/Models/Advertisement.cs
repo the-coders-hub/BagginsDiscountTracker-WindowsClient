@@ -8,7 +8,7 @@ namespace Baggins.Models
     class Advertisement
     {
         //Discount ID
-        public string DiscountId { get; set; }
+        public int DiscountId { get; set; }
 
         //Title
         [JsonProperty(PropertyName = "title")]

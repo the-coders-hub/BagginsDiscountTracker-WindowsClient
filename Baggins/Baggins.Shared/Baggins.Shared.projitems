@@ -19,6 +19,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)ArticlePage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HomePage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Advertisement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\UARelation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\UserProfile.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)Dictionary.xaml">
