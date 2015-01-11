@@ -24,8 +24,42 @@ namespace Baggins
 
         private List<Advertisement> getData(int type)
         {
-            //String title, String description, String source_name, String source_details,String link, String image, int likes, int dislikes
             List<Advertisement> itemsList = new List<Advertisement>();
+            //(String title, String description, String source_name, 
+            //String link, String image, int likes, int dislikes,
+            //String company, String category, bool active, DateTime validupto)
+            if (type == -1) //Mobiles
+            {
+                itemsList.Add(new Advertisement("", "", "", "", "", 0, 0, "", "", true, new DateTime()));
+                itemsList.Add(new Advertisement("", "", "", "", "", 0, 0, "", "", true, new DateTime()));
+            }
+            if (type == 0) //Mobiles
+            {
+                itemsList.Add(new Advertisement("", "", "", "", "", 0, 0, "", "", true, new DateTime()));
+                itemsList.Add(new Advertisement("", "", "", "", "", 0, 0, "", "", true, new DateTime()));    
+            }
+            if (type == 1) //Electronics
+            {
+                itemsList.Add(new Advertisement("", "", "", "", "", 0, 0, "", "", true, new DateTime()));
+                itemsList.Add(new Advertisement("", "", "", "", "", 0, 0, "", "", true, new DateTime()));
+            }
+            if (type == 2) //Food
+            {
+                itemsList.Add(new Advertisement("", "", "", "", "", 0, 0, "", "", true, new DateTime()));
+                itemsList.Add(new Advertisement("", "", "", "", "", 0, 0, "", "", true, new DateTime()));
+            }
+            if (type == 3) //Fashion
+            {
+                itemsList.Add(new Advertisement("", "", "", "", "", 0, 0, "", "", true, new DateTime()));
+                itemsList.Add(new Advertisement("", "", "", "", "", 0, 0, "", "", true, new DateTime()));
+            }
+            if (type == 4) //Specs
+            {
+                itemsList.Add(new Advertisement("", "", "", "", "", 0, 0, "", "", true, new DateTime()));
+                itemsList.Add(new Advertisement("", "", "", "", "", 0, 0, "", "", true, new DateTime()));
+            }
+            //String title, String description, String source_name, String source_details,String link, String image, int likes, int dislikes
+            
             //itemsList.Add(new Advertisement("Heading Of The App, will be showed here!", "This is the descriptio, yout"+
             //"mothe fucker. This better work,mothe fucker. This better work,mothe fucker. This better work,mothe fucker. This better work,mothe fucker. This better work, n", "Bijoy Singh", "20 years old", "http://google.com", "", 12, 2));
             //itemsList.Add(new Advertisement("Heading", "This is the description", "Bijoy Singh", "20 years old", "http://google.com", "", 12, 2));
@@ -59,12 +93,19 @@ namespace Baggins
 
         private void StartCreation()
         {
-            AddAdvertisement.FetchItems(MobileList, "Mobile");
-       //     AddAdvertisement.FetchItems(ElectronicsList, "Electronics");
-        //    AddAdvertisement.FetchItems(FoodList, "food");
-         //   AddAdvertisement.FetchItems(FashionList, "fashion");
+           // AddAdvertisement.FetchItems(MobileList, "Mobile");
+           // AddAdvertisement.FetchItems(ElectronicsList, "Electronics");
+           // AddAdvertisement.FetchItems(FoodList, "food");
+          //  AddAdvertisement.FetchItems(FashionList, "fashion");
           //  AddAdvertisement.FetchItems(SpecsList, "Specs");
-
+            
+            /*
+            CreateListView(MobileList, 0);
+            CreateListView(ElectronicsList,1);
+            CreateListView(FoodList, 2);
+          CreateListView(FashionList, 3);
+          CreateListView(SpecsList, 4);
+            */
             //Grid FeaturedGrid = new Grid(); 
             //CreateListView(FeaturedGrid,0);
         }

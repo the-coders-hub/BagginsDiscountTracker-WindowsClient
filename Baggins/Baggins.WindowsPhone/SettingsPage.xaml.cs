@@ -16,6 +16,10 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.Live;
+using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Resources;
+using Windows.Storage;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -46,6 +50,91 @@ namespace Baggins
             populateLV();
         }
 
+        private void ClickFunction(Object sender, ItemClickEventArgs e)
+        {
+            /*ListView lv = ((ListView) sender);
+            Advertisement ad = lv.*/
+            SettingsItem ad = e.ClickedItem as SettingsItem;
+            if (ad != null)
+            {
+                if (ad.Id == 0)
+                {
+                    logOut();
+                }
+                if (ad.Id == 1)
+                {
+
+                }
+                if (ad.Id == 2)
+                {
+                    ConnectToLive(sender,e);
+                }
+                if (ad.Id == 3)
+                {
+
+                }
+                if (ad.Id == 4)
+                {
+
+                }
+            }
+        }
+
+        private void getUserData(dynamic meData)
+        {
+            //var d = meData["id"];
+
+            localSettings.Values["OUTLOOK_ID"] = meData.id;
+            localSettings.Values["OUTLOOK_NAME"] = meData.name;
+            localSettings.Values["OUTLOOK_FN"] = meData.first_name;
+            localSettings.Values["OUTLOOK_LN"] = meData.last_name;
+        }
+        private void logOut()
+        {
+            //var d = meData["id"];
+
+            localSettings.Values["OUTLOOK_ID"] = null;
+            localSettings.Values["OUTLOOK_NAME"] = null;
+            localSettings.Values["OUTLOOK_FN"] = null;
+            localSettings.Values["OUTLOOK_LN"] = null;
+            goHome();
+        }
+        private async void ConnectToLive(Object sender, RoutedEventArgs e)
+        {
+
+            bool connected = false;
+            try
+            {
+                var authClient = new LiveAuthClient();
+                LiveLoginResult result = await authClient.LoginAsync(new string[] { "wl.signin" });
+
+                if (result.Status == LiveConnectSessionStatus.Connected)
+                {
+                    connected = true;
+                    var connectClient = new LiveConnectClient(result.Session);
+                    var meResult = await connectClient.GetAsync("me");
+                    dynamic meData = meResult.Result;
+                    getUserData(meData);
+                }
+            }
+            catch (LiveAuthException ex)
+            {
+                // Display an error message.
+            }
+            catch (LiveConnectException ex)
+            {
+                // Display an error message.
+            }
+
+            // Turn off the display of the connection button in the UI.
+            //connectButton.Visibility = connected ? Visibility.Collapsed : Visibility.Visible;
+            goHome();
+        }
+
+        public void goHome()
+        {
+            this.Frame.Navigate(typeof(HomePage));
+        }
 
         public void populateLV()
         {
@@ -53,16 +142,16 @@ namespace Baggins
             if ((localSettings.Values["OUTLOOK_ID"] as string) != null)
             {
                 logged_in = true;
-                items.Add(new SettingsItem("Assets/profile.PNG", "Logged In", "Click To Log Out Of The Application"));
-                items.Add(new SettingsItem("Assets/face.PNG", "Profile", "Click To See Your Profile"));
+                items.Add(new SettingsItem("Assets/profile.PNG", "Logged In", "Click To Log Out Of The Application",0));
+                items.Add(new SettingsItem("Assets/face.PNG", "Profile", "Click To See Your Profile",1));
             }
             else
             {
-                items.Add(new SettingsItem("Assets/profile.PNG", "Log In", "Click To Log In Of The Application"));
+                items.Add(new SettingsItem("Assets/profile.PNG", "Log In", "Click To Log In Of The Application",2));
             }
 
-            items.Add(new SettingsItem("Assets/bookmarks.PNG", "Bookmarks", "Click To View  Your Games"));
-            items.Add(new SettingsItem("Assets/following.PNG", "Following", "Click To View The Brands You Follow"));
+            items.Add(new SettingsItem("Assets/bookmarks.PNG", "Bookmarks", "Click To View  Your Games",3));
+            //items.Add(new SettingsItem("Assets/following.PNG", "Following", "Click To View The Brands You Follow",4));
 
             SettingsList.ItemTemplate = (DataTemplate)Application.Current.Resources["lvTemplate"];
             SettingsList.ItemsSource = items;
@@ -141,12 +230,14 @@ namespace Baggins
         public String ImagePath { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        public int Id { get; set; }
 
-        public SettingsItem(string image_name,string title,string desc)
+        public SettingsItem(string image_name,string title,string desc, int id)
         {
             this.ImagePath = image_name;
             this.Title = title;
             this.Description = desc;
+            this.Id = id;
         }
     }
 }

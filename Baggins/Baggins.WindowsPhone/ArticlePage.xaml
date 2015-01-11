@@ -10,7 +10,7 @@
 
     <Page.BottomAppBar>
         <CommandBar>
-            <AppBarButton Icon="Pin" Label="Pin"/>
+            <AppBarButton Icon="Pin" Label="Pin" Click="Bookmark"/>
             <AppBarButton Icon="Go" Label="Go"/>
         </CommandBar>
     </Page.BottomAppBar>
@@ -25,9 +25,10 @@
 
                 <StackPanel Orientation="Vertical" >
                     <Image 
+                        x:Name="CoverImage"
                 HorizontalAlignment="Stretch" 
                 VerticalAlignment="Top" 
-                Source="Assets/design_106.JPG" />
+                Source="Assets/default_noimage.PNG" />
                     <TextBlock 
                     x:Name="Title"
                 	HorizontalAlignment="Stretch" 

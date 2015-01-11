@@ -16,7 +16,7 @@
             <AppBarButton Icon="Add" Label="Add" Click="GoToNewAdvertisement"/>
         </CommandBar>
     </Page.BottomAppBar>
-    <Grid Background="#455a64">
+    <Grid>
         <Pivot>
             <PivotItem Header="Featured"
                        Padding="0"

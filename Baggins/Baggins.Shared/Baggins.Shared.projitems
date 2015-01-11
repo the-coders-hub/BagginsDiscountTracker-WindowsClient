@@ -35,12 +35,36 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\71_71.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\bookmarks.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\cag.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\company\beats.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\company\ccd.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\company\dominoes.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\company\flipkart.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\company\govasool.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\company\lenskart.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\company\mod.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\company\ph.gif" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\company\pizzahut.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\default_noimage.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\dislike.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\face.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\fashion\fashion_1.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\fashion\fashion_2.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\following.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\food\food_1.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\food\food_2.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\food\food_3.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\food\food_4.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\food\food_5.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\food\food_6.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\food\food_7.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\like.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\mobile\mobile_1.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\mobile\mobile_2.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\profile.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\specs\specs_1.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\specs\specs_2.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\specs\specs_3.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\specs\specs_4.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Fonts\RalewayLt.otf" />
   </ItemGroup>
 </Project>

@@ -49,7 +49,7 @@ namespace Baggins
             {
                 items = await discountTable
                     .Where(discountItem => discountItem.IsActive == true)
-                    .Where(discountItem => discountItem.Category == "Category")
+                    .Where(discountItem => discountItem.Category == Category)
                     .ToCollectionAsync();
             }
             catch (MobileServiceInvalidOperationException e)
