@@ -12,7 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Windows.Phone.UI.Input;
+using Windows.Storage.Pickers;
+using Windows.Storage;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -21,9 +22,13 @@ namespace Baggins
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class ArticlePage : Page
+    public sealed partial class AddAdvertisement : Page
     {
-      
+        public AddAdvertisement()
+        {
+            this.InitializeComponent();
+        }
+
         /// <summary>
         /// Invoked when this page is about to be displayed in a Frame.
         /// </summary>
@@ -31,31 +36,26 @@ namespace Baggins
         /// This parameter is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Advertisement ad =(Advertisement) e.Parameter;
-            if (ad != null)
-            {
-                Title.Text = ad.Title;
-                Description.Text = ad.Description;
-                Likes.Text = "" + ad.Likes;
-                Dislikes.Text = "" + ad.Dislikes;
-                SourceName.Text = ad.SourceName;
-                SourceDescription.Text = ad.SourceDescription;
-            }
-
-            HardwareButtons.BackPressed += HardwareButtons_BackPressed;
         }
 
-        private void HardwareButtons_BackPressed(Object sender, BackPressedEventArgs e){
-            Frame frame = Window.Current.Content as Frame;
-            if (frame == null)
-            {
+        private async void ImageClickListener(Object sender, TappedRoutedEventArgs e)
+        {
+            FileOpenPicker openPicker = new FileOpenPicker();
+            openPicker.ViewMode = PickerViewMode.Thumbnail;
+            openPicker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
+            openPicker.FileTypeFilter.Add(".jpg");
+            openPicker.FileTypeFilter.Add(".jpeg");
+            openPicker.FileTypeFilter.Add(".png");
 
-            }
-            else if(frame.CanGoBack)
+            StorageFile file = await openPicker.PickSingleFileAsync();
+            if (file != null)
             {
-                frame.GoBack();
-                e.Handled = true;
+                //CoverImage.Source = file.Path;           
             }
+            else
+            { 
+            }
+
         }
     }
 }

@@ -11,6 +11,7 @@
         <CommandBar>
             <AppBarButton Icon="Setting" Label="Settings"/>
             <AppBarButton Icon="Bookmarks" Label="Bookmarks"/>
+            <AppBarButton Icon="Add" Label="Add" Click="GoToNewAdvertisement"/>
         </CommandBar>
     </Page.BottomAppBar>
     <Grid>
@@ -21,7 +22,11 @@
                 <Grid x:Name="FeaturedPivot">
                     <ListView x:Name="FeaturedList"
                               Padding="0" Margin="0,0,0,0" 
-                              HorizontalAlignment="Stretch">
+                              HorizontalAlignment="Stretch"
+                              ItemClick="ClickFunction"
+                              IsItemClickEnabled="True"
+                              >
+                        
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
