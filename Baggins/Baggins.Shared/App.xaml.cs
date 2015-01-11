@@ -34,7 +34,7 @@ namespace Baggins
         // and application key. You're all set to start working with your Mobile Service!
         public static MobileServiceClient MobileService = new MobileServiceClient(
             "https://cag.azure-mobile.net/",
-            "mtKhCHPZmAhKXgGDhKmJYtYGDvkEzT87"
+            "QSEMkWSGDDzubLsrYsuFUKJoHoFCds71"
         );
 
         /// <summary>

@@ -10,7 +10,7 @@ namespace Baggins.Models
         public int id { get; set; }
 
         //Discount ID
-        public int DiscountId { get; set; }
+        public string DiscountId { get; set; }
 
         //Title
         [JsonProperty(PropertyName = "title")]

@@ -7,13 +7,13 @@ namespace Baggins.Models
 {
     class UARelation
     {
-        public int id { get; set; }
+        public string id { get; set; }
 
         [JsonProperty(PropertyName = "username")]
         public string Username { get; set; }
 
         [JsonProperty(PropertyName = "discountid")]
-        public int DiscountId { get; set; }
+        public string DiscountId { get; set; }
 
         [JsonProperty(PropertyName = "flag")]
         public int Flag { get; set; }
@@ -23,7 +23,7 @@ namespace Baggins.Models
 
         }
 
-        public UARelation(String username, int discountid, int flag)
+        public UARelation(String username, string discountid, int flag)
         {
             Username = username;
             DiscountId = discountid;

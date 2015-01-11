@@ -10,7 +10,7 @@
     <Page.BottomAppBar>
         <CommandBar>
             <AppBarButton Icon="Cancel" Label="Cancel"/>
-            <AppBarButton Icon="Accept" Label="Publish"/>
+            <AppBarButton Icon="Accept" Label="Publish" Click="ButtonSubmit_Click"/>
         </CommandBar>
     </Page.BottomAppBar>
 
