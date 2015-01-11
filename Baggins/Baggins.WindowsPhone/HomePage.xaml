@@ -9,18 +9,21 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.BottomAppBar>
         <CommandBar>
-            <AppBarButton Icon="Setting" Label="Settings"/>
+            <AppBarButton Icon="Setting" Label="Settings"  Click="GoToSettings"/>
+            <!--
             <AppBarButton Icon="Bookmarks" Label="Bookmarks"/>
+            -->
             <AppBarButton Icon="Add" Label="Add" Click="GoToNewAdvertisement"/>
         </CommandBar>
     </Page.BottomAppBar>
-    <Grid>
+    <Grid Background="#455a64">
         <Pivot>
             <PivotItem Header="Featured"
                        Padding="0"
                        Margin="0">
                 <Grid x:Name="FeaturedPivot">
-                    <ListView x:Name="FeaturedList"
+                    <ListView
+                              x:Name="FeaturedList"
                               Padding="0" Margin="0,0,0,0" 
                               HorizontalAlignment="Stretch"
                               ItemClick="ClickFunction"
@@ -35,20 +38,106 @@
                     </ListView>
                 </Grid>
             </PivotItem>
-            <PivotItem Header="Electronics">
-                <Grid/>
+            <PivotItem Header="Mobiles"
+                       Padding="0"
+                       Margin="0">
+                <Grid>
+                    <ListView
+                              x:Name="MobileList"
+                              Padding="0" Margin="0,0,0,0" 
+                              HorizontalAlignment="Stretch"
+                              ItemClick="ClickFunction"
+                              IsItemClickEnabled="True"
+                              >
+
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                </Grid>
             </PivotItem>
-            <PivotItem Header="Food">
-                <Grid/>
+
+            <PivotItem Header="Electronics"
+                       Padding="0"
+                       Margin="0">
+                <Grid>
+                    <ListView
+                              x:Name="ElectronicsList"
+                              Padding="0" Margin="0,0,0,0" 
+                              HorizontalAlignment="Stretch"
+                              ItemClick="ClickFunction"
+                              IsItemClickEnabled="True"
+                              >
+
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                </Grid>
             </PivotItem>
-            <PivotItem Header="Books">
-                <Grid/>
+            <PivotItem Header="Food"
+                       Padding="0"
+                       Margin="0">
+                <Grid>
+                    <ListView
+                              x:Name="FoodList"
+                              Padding="0" Margin="0,0,0,0" 
+                              HorizontalAlignment="Stretch"
+                              ItemClick="ClickFunction"
+                              IsItemClickEnabled="True"
+                              >
+
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                </Grid>
             </PivotItem>
-            <PivotItem Header="Media">
-                <Grid/>
+            <PivotItem Header="Fashion"
+                       Padding="0"
+                       Margin="0">
+                <Grid>
+                    <ListView
+                              x:Name="FashionList"
+                              Padding="0" Margin="0,0,0,0" 
+                              HorizontalAlignment="Stretch"
+                              ItemClick="ClickFunction"
+                              IsItemClickEnabled="True"
+                              >
+
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                </Grid>
             </PivotItem>
-            <PivotItem Header="Home">
-                <Grid/>
+            <PivotItem Header="Specs"
+                       Padding="0"
+                       Margin="0">
+                <Grid>
+                    <ListView
+                              x:Name="SpecsList"
+                              Padding="0" Margin="0,0,0,0" 
+                              HorizontalAlignment="Stretch"
+                              ItemClick="ClickFunction"
+                              IsItemClickEnabled="True"
+                              >
+
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                </Grid>
             </PivotItem>
         </Pivot>
 

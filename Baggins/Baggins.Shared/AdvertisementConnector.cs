@@ -40,9 +40,11 @@ namespace Baggins
         }
 
         //This will fetch the advertisements from the table as if it wasn't apparent.
-        private async Task FetchItems(ListView ListName, String Category)
+        public static async Task FetchItems(ListView ListName, String Category)
         {
             MobileServiceInvalidOperationException exception = null;
+            MobileServiceCollection<Advertisement, Advertisement> items = null;
+            IMobileServiceTable<Advertisement> discountTable = App.MobileService.GetTable<Advertisement>();
             try
             {
                 items = await discountTable
@@ -61,7 +63,8 @@ namespace Baggins
             }
             else
             {
-                ListName.ItemsSource = items;
+                if(items != null)
+                    ListName.ItemsSource = items;
             }
         }
 

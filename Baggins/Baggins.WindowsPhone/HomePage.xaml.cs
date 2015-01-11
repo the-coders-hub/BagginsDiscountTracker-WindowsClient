@@ -59,7 +59,11 @@ namespace Baggins
 
         private void StartCreation()
         {
-            CreateListView(FeaturedList, 0);
+            AddAdvertisement.FetchItems(MobileList, "Mobile");
+       //     AddAdvertisement.FetchItems(ElectronicsList, "Electronics");
+        //    AddAdvertisement.FetchItems(FoodList, "food");
+         //   AddAdvertisement.FetchItems(FashionList, "fashion");
+          //  AddAdvertisement.FetchItems(SpecsList, "Specs");
 
             //Grid FeaturedGrid = new Grid(); 
             //CreateListView(FeaturedGrid,0);
@@ -87,6 +91,10 @@ namespace Baggins
         private void GoToNewAdvertisement(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Baggins.AddAdvertisement));
+        }
+        private void GoToSettings(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Baggins.SettingsPage));
         }
 
         private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)

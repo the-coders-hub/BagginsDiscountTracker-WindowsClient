@@ -19,10 +19,11 @@
         <StackPanel >
 
             <Image 
+                
                 x:Name="CoverImage"
                 Tapped="ImageClickListener"
                HorizontalAlignment="Stretch"
-               Source="Assets/design_106.JPG"
+               Source="Assets/default_noimage.PNG"
                VerticalAlignment="Top" />
             
             <TextBox 
@@ -71,8 +72,11 @@
             	PlaceholderText="Category"
                     x:Name="Category"
                           Foreground="Black" RequestedTheme="Light">
-                    <ComboBoxItem Content="Hello"/>
-                    <ComboBoxItem Content="Hello"/>
+                    <ComboBoxItem Content="Mobiles"/>
+                    <ComboBoxItem Content="Electronics"/>
+                    <ComboBoxItem Content="Food"/>
+                    <ComboBoxItem Content="Fashion"/>
+                    <ComboBoxItem Content="Specs"/>
                 </ComboBox>
                
                 <TextBox 

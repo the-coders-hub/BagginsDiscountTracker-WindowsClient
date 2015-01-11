@@ -16,8 +16,8 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Baggins.WindowsPhone.App">
-      <m3:VisualElements DisplayName="Baggins" Square150x150Logo="Assets\Logo.png" Square44x44Logo="Assets\SmallLogo.png" Description="Baggins.WindowsPhone" ForegroundText="light" BackgroundColor="transparent">
-        <m3:DefaultTile Wide310x150Logo="Assets\WideLogo.png" Square71x71Logo="Assets\Square71x71Logo.png">
+      <m3:VisualElements DisplayName="Baggins" Square150x150Logo="Assets\150_150.png" Square44x44Logo="Assets\44_44.png" Description="Baggins.WindowsPhone" ForegroundText="light" BackgroundColor="#ffffff">
+        <m3:DefaultTile Wide310x150Logo="Assets\310_150.png" Square71x71Logo="Assets\71_71.png">
         </m3:DefaultTile>
         <m3:SplashScreen Image="Assets\SplashScreen.png" />
       </m3:VisualElements>

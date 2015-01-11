@@ -21,7 +21,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Advertisement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\UARelation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\UserProfile.cs" />
-
   </ItemGroup>
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)Dictionary.xaml">
@@ -30,11 +29,18 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Assets\150_150.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\310_150.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\44_44.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\71_71.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\bookmarks.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\cag.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\design_106.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\default_noimage.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\dislike.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\face.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\following.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\like.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\profile.png" />
     <Content Include="$(MSBuildThisFileDirectory)Fonts\RalewayLt.otf" />
   </ItemGroup>
 </Project>
