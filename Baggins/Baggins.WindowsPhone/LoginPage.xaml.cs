@@ -29,8 +29,12 @@ namespace Baggins
 
         private ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
 
-       
 
+        public LoginPage()
+        {
+            this.InitializeComponent();
+            this.NavigationCacheMode = NavigationCacheMode.Required;
+        }
         /// <summary>
         /// Invoked when this page is about to be displayed in a Frame.
         /// </summary>
@@ -103,7 +107,7 @@ namespace Baggins
             }
 
             // Turn off the display of the connection button in the UI.
-            connectButton.Visibility = connected ? Visibility.Collapsed : Visibility.Visible;
+            //connectButton.Visibility = connected ? Visibility.Collapsed : Visibility.Visible;
             goToHome();
         }
     }

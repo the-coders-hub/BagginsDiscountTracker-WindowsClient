@@ -7,6 +7,8 @@ namespace Baggins.Models
 {
     class UARelation
     {
+        public int id { get; set; }
+
         [JsonProperty(PropertyName = "username")]
         public string Username { get; set; }
 

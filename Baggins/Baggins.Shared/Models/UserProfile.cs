@@ -7,6 +7,8 @@ namespace Baggins.Models
 {
     class UserProfile
     {
+        public int id { get; set; }
+
         public int UId { get; set; }
 
         //Outlook login generated userid

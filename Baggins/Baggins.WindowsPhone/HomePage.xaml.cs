@@ -12,7 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Baggins.Models
+using Baggins.Models;
 
 namespace Baggins
 {
@@ -26,10 +26,10 @@ namespace Baggins
         {
             //String title, String description, String source_name, String source_details,String link, String image, int likes, int dislikes
             List<Advertisement> itemsList = new List<Advertisement>();
-            itemsList.Add(new Advertisement("Heading Of The App, will be showed here!", "This is the descriptio, yout"+
-            "mothe fucker. This better work,mothe fucker. This better work,mothe fucker. This better work,mothe fucker. This better work,mothe fucker. This better work, n", "Bijoy Singh", "20 years old", "http://google.com", "", 12, 2));
-            itemsList.Add(new Advertisement("Heading", "This is the description", "Bijoy Singh", "20 years old", "http://google.com", "", 12, 2));
-            itemsList.Add(new Advertisement("Heading", "This is the description", "Bijoy Singh", "20 years old", "http://google.com", "", 12, 2));
+            //itemsList.Add(new Advertisement("Heading Of The App, will be showed here!", "This is the descriptio, yout"+
+            //"mothe fucker. This better work,mothe fucker. This better work,mothe fucker. This better work,mothe fucker. This better work,mothe fucker. This better work, n", "Bijoy Singh", "20 years old", "http://google.com", "", 12, 2));
+            //itemsList.Add(new Advertisement("Heading", "This is the description", "Bijoy Singh", "20 years old", "http://google.com", "", 12, 2));
+            //itemsList.Add(new Advertisement("Heading", "This is the description", "Bijoy Singh", "20 years old", "http://google.com", "", 12, 2));
 
             return itemsList;
         }
@@ -84,14 +84,9 @@ namespace Baggins
             // this event is handled for you.
         }
 
-        private void GoToLoginPage(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Baggins.LoginPage));
-        }
-
         private void GoToNewAdvertisement(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Baggins.AddAdvertisementConnector));
+            this.Frame.Navigate(typeof(Baggins.AddAdvertisement));
         }
 
         private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)

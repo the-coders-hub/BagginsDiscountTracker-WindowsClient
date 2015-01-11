@@ -7,6 +7,8 @@ namespace Baggins.Models
 {
     class Advertisement
     {
+        public int id { get; set; }
+
         //Discount ID
         public int DiscountId { get; set; }
 

@@ -20,7 +20,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Baggins
 {
-    sealed partial class AddAdvertisementConnector: Page
+    sealed partial class AddAdvertisement: Page
     {
         private async void ButtonSubmit_Click(object sender, RoutedEventArgs e)
         {

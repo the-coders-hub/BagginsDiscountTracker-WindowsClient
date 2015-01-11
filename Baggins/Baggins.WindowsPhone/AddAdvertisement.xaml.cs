@@ -17,6 +17,7 @@ using Windows.Storage;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml.Media.Imaging;
+using Windows.Phone.UI.Input;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -25,16 +26,16 @@ namespace Baggins
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class AddAdvertisementConnector : Page
+    public sealed partial class AddAdvertisement : Page
     {
-<<<<<<< HEAD
+
         CoreApplicationView view = CoreApplication.GetCurrentView();
-        public AddAdvertisement()
-=======
-        public AddAdvertisementConnector()
->>>>>>> b67d7ed5f61fbc964fac04e0e714973315f73683
+       
+            public AddAdvertisement()
         {
             this.InitializeComponent();
+
+            this.NavigationCacheMode = NavigationCacheMode.Required;
         }
 
         /// <summary>
@@ -44,6 +45,21 @@ namespace Baggins
         /// This parameter is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+        }
+
+        private void HardwareButtons_BackPressed(Object sender, BackPressedEventArgs e)
+        {
+            Frame frame = Window.Current.Content as Frame;
+            if (frame == null)
+            {
+
+            }
+            else if (frame.CanGoBack)
+            {
+                frame.GoBack();
+                e.Handled = true;
+            }
         }
 
         private void ImageClickListener(Object sender, TappedRoutedEventArgs e)

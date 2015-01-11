@@ -40,7 +40,7 @@ namespace Baggins
                 Likes.Text = "" + ad.Likes;
                 Dislikes.Text = "" + ad.Dislikes;
                 SourceName.Text = ad.SourceName;
-                SourceDescription.Text = ad.SourceDescription;
+                SourceDescription.Text = ad.Link;
             }
 
             HardwareButtons.BackPressed += HardwareButtons_BackPressed;
