@@ -80,6 +80,7 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AddAdvertisement.cs" />
     <Compile Include="AddAdvertisement.xaml.cs">
       <DependentUpon>AddAdvertisement.xaml</DependentUpon>
     </Compile>
