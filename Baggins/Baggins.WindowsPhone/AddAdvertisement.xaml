@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="Baggins.AddAdvertisement"
+    x:Class="Baggins.AddAdvertisementConnector"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Baggins"
@@ -69,6 +69,7 @@
                     HorizontalAlignment="Stretch"
                     SelectionChanged="ComboBox_SelectionChanged"
             	PlaceholderText="Category"
+                    x:Name="Category"
                           Foreground="Black" RequestedTheme="Light">
                     <ComboBoxItem Content="Hello"/>
                     <ComboBoxItem Content="Hello"/>

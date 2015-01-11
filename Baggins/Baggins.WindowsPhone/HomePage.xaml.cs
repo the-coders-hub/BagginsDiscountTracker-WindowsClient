@@ -90,7 +90,7 @@ namespace Baggins
 
         private void GoToNewAdvertisement(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Baggins.AddAdvertisement));
+            this.Frame.Navigate(typeof(Baggins.AddAdvertisementConnector));
         }
 
         private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
