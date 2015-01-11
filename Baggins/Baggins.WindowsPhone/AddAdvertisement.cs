@@ -40,5 +40,17 @@ namespace Baggins
             };
             await InsertDiscountItem(discountItem);
         }
+
+        /*
+        private async void ButtonRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonRefresh.IsEnabled = false;
+
+            //await SyncAsync(); // offline sync
+            await FetchItems(ListName, Category);
+
+            ButtonRefresh.IsEnabled = true;
+        }
+         */
     }
 }

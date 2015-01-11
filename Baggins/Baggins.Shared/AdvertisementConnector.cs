@@ -35,5 +35,31 @@ namespace Baggins
             //await SyncAsync(); // offline sync
         }
 
+        //This will fetch the advertisements from the table as if it wasn't apparent.
+        private async Task FetchItems(ListView ListName, String Category)
+        {
+            MobileServiceInvalidOperationException exception = null;
+            try
+            {
+                items = await discountTable
+                    .Where(discountItem => discountItem.IsActive == true)
+                    .Where(discountItem => discountItem.Category == "Category")
+                    .ToCollectionAsync();
+            }
+            catch (MobileServiceInvalidOperationException e)
+            {
+                exception = e;
+            }
+
+            if (exception != null)
+            {
+                await new MessageDialog(exception.Message, "Error loading items").ShowAsync();
+            }
+            else
+            {
+                ListName.ItemsSource = items;
+            }
+        }
+
     }
 }
