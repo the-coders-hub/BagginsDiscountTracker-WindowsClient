@@ -21,6 +21,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Advertisement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\UARelation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\UserProfile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)storage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)Dictionary.xaml">
@@ -42,5 +43,6 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\like.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\profile.png" />
     <Content Include="$(MSBuildThisFileDirectory)Fonts\RalewayLt.otf" />
+    <Content Include="$(MSBuildThisFileDirectory)SQL\InsertStuff.txt" />
   </ItemGroup>
 </Project>
