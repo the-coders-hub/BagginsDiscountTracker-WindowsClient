@@ -7,9 +7,9 @@ namespace Baggins.Models
 {
     class UserProfile
     {
-        public int id { get; set; }
+        public string id { get; set; }
 
-        public int UId { get; set; }
+        public string UId { get; set; }
 
         //Outlook login generated userid
         [JsonProperty(PropertyName = "username")]

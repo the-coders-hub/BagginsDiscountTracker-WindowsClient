@@ -22,22 +22,15 @@ namespace Baggins
 {
     sealed partial class AddAdvertisement: Page
     {
+
+       
+
         private async void ButtonSubmit_Click(object sender, RoutedEventArgs e)
         {
-            var discountItem = new Advertisement
-            {
-                Title = Heading.Text,
-                Description = Details.Text,
-                SourceName = "",
-                Likes = 0,
-                Dislikes = 0,
-                Link = Link.Text,
-                ImageLink = "",
-                Company = "",
-                Category = "",
-                IsActive = true,
-                ValidUpto = Convert.ToDateTime(Validity.Date),
-            };
+            var blah = Validity.Date;
+            var blue = blah.Date;
+            var discountItem = new Advertisement(Heading.Text, Details.Text, "ranveer", Link.Text, "", 0, 0, "Amazon", "Electronics", true, Validity.Date.Date);
+                
             await InsertDiscountItem(discountItem);
         }
 
